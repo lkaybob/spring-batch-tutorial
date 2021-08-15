@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 @Entity
 public class TransactionAll {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long seq;
     private String name;
     private String address;

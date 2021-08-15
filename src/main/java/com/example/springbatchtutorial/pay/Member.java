@@ -13,12 +13,12 @@ import java.util.List;
 @Entity
 public class Member {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long seq;
     private String name;
     private String address;
 
-    @OneToMany(mappedBy = "member_no")
+    @OneToMany(mappedBy = "member")
     private List<Transaction> transactions = new ArrayList<>();
 
     public Member(Long seq, String name, String address) {
@@ -30,5 +30,29 @@ public class Member {
     public Member(String name, String address) {
         this.name = name;
         this.address = address;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public List<Transaction> getTransactions() {
+        return transactions;
+    }
+
+    public void setTransactions(List<Transaction> transactions) {
+        this.transactions = transactions;
     }
 }
